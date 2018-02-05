@@ -1,8 +1,8 @@
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
-html=urlopen("http://www.pythonscraping.com/pages/warandpeace.html")
-bs0bj=BeautifulSoup(html)
 
-namelist=bs0bj.findAll("span",{"class":"green"})
-for name in namelist:
-    print (name.get_text())
+html=urlopen("http://en.wikipedia.org/wiki/Kevin_Bacon")
+bs0bj=BeautifulSoup(html)
+for link in bs0bj.findAll("a"):
+	if 'href' in link.attrs:
+		print(link.attrs['href'])
